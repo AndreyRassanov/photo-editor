@@ -4,6 +4,7 @@ import Title from 'antd/es/typography/Title';
 import { CylinderPage } from './components/Cylinder/CylinderPage';
 import { fields } from './values';
 import MainPage from './components/Main/MainPage';
+import PhotoEditorPage from './components/PhotoEditor/PhotoEditorPage';
 const { Header, Content, Sider } = Layout;
 
 const App = () => {
@@ -21,15 +22,15 @@ const App = () => {
       <Content style={{ padding: '0 50px' }}>
         <Breadcrumb style={{ margin: '16px 0', }} />
         <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
-          <Sider style={{ background: colorBgContainer }} width={200}>
+          <Sider width={'auto'}>
             <Menu
               activeKey=''
               mode="inline"
-              style={{ height: '100%' }}
+              style={{ height: '100%'}}
               items={fields}
             />
           </Sider>
-          <Content style={{ padding: '0 24px', minHeight: 280 }}>
+          <Content style={{ padding: '0 24px', minHeight: 700 }}>
             <Space >
               <Radio.Group style={{ padding: '10px 0' }} buttonStyle="solid">
                 <Radio.Button value="a">Развёртка</Radio.Button>
@@ -42,7 +43,8 @@ const App = () => {
             </Space>
 
             {/* <CylinderPage /> */}
-            {/* <MainPage/> */}
+            <MainPage/>
+            {/* <PhotoEditorPage/>  */}
 
           </Content>
         </Layout>

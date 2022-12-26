@@ -29,23 +29,24 @@ const Cylinder = (props) => {
     //     boxRef.current.rotation.y += ((rpm / 60) * Math.PI * 2 * (deltaTimeInMs / 1000));
     //   }
     // });
-    
+
     const faceUV = [];
     faceUV[0] = new Vector4(0, 0, 0, 0);
     faceUV[1] = new Vector4(1, 0, 0.25, 1);
     faceUV[2] = new Vector4(0, 0, 0, 0);
 
-    return (<cylinder faceUV={faceUV} name={props.name} ref={boxRef} size={2} position={props.position}>
+    return (<cylinder faceUV={faceUV} name={props.name} ref={boxRef} height={10}>
         <standardMaterial name={`${props.name}-mat`}>
             <texture url={image} />
         </standardMaterial>
     </cylinder>);
 }
 
-export const CylinderPage = () => (
-    <div>
+export const CylinderPage = () => {
+    const color = new Color3(0.9, 0.9, 0.9)
+    return (<div style={{ height: '800px' }}>
         <Engine antialias adaptToDeviceRatio canvasId='babylonJS' >
-            <Scene clearColor={new Color3(0.9, 0.9, 0.9)}>
+            <Scene clearColor={color}>
                 <arcRotateCamera name="camera1" target={Vector3.Zero()} alpha={Math.PI / 2} beta={Math.PI / 4} radius={8} />
                 <hemisphericLight name='light1' intensity={1} direction={Vector3.Up()} />
                 <Cylinder name='right' position={new Vector3(0, 0, 0)}
@@ -53,5 +54,6 @@ export const CylinderPage = () => (
                 />
             </Scene>
         </Engine>
-    </div>
-)
+    </div>)
+
+}
